@@ -1,0 +1,49 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "tabnine.experimentalAutoImports": true,
+    "files.autoSave": "afterDelay",
+    "vim.vimrc.path": "~/.vimrc",
+    "vim.easymotion": true,
+    "vim.vimrc.enable": true,
+    "vim.smartRelativeLine": true,
+    "vim.leader": " ",
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindings": 
+    [
+        {
+            "before": ["f"],
+            "after": ["<leader>","<leader>","f"]
+        },
+        {
+            "before": ["F"],
+            "after": ["<leader>","<leader>","F"]
+        },
+        {
+            "before": ["<tab>"],
+            "commands": ["workbench.action.nextEditor"]
+        },
+        {
+            "before": ["<S-tab>"],
+            "commands": ["workbench.action.previousEditor"]
+        },
+    ],
+    "vim.visualModeKeyBindings": 
+    [
+        {
+            "before": [">"],
+            "after": [">", "g", "v"]
+        },
+        {
+            "before": ["<"],
+            "after": ["<", "g", "v"]
+        },
+        {
+            "before": ["f"],
+            "after": ["<leader>","<leader>","f"]
+        },
+        {
+            "before": ["F"],
+            "after": ["<leader>","<leader>","F"]
+        },
+    ],   
+}
