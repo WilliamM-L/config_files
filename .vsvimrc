@@ -3,11 +3,14 @@ set relativenumber
 set cursorline
 set autoindent
 let mapleader=" "
+
+" MACROS
+" place each , on a newline for strings (could be improved, could add tabs)
+" s/,/,"+\r"/g
+
 " NORMAL
-"Select text from current caret position to desired jump label (fwd and reverse directions supported)
-nmap ;; gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
-"Two char search mode:
-" nmap ;c gS:vsc Tools.InvokePeasyMotionTwoCharJump<CR>
+"Two char search
+nnoremap ;c gS:vsc Tools.InvokePeasyMotionTwoCharJump<CR>
 
 "Whole viewport jump-to-word beginning mode:
 nnoremap f gS:vsc Tools.InvokePeasyMotion<CR>
@@ -17,23 +20,36 @@ nnoremap ;w gS:vsc Tools.InvokePeasyMotionLineJumpToWordBegining<CR>
 "Jump to word ending in current line
 nnoremap ;e gS:vsc Tools.InvokePeasyMotionLineJumpToWordEnding<CR>
 
-nnoremap <C-h> :vsc View.NavigateBackward<CR> 
-nnoremap <C-l> :vsc View.NavigateForward<CR>
+"nnoremap <C-h> :vsc View.NavigateBackward<CR> -> mapped in VS
+"nnoremap <C-l> :vsc View.NavigateForward<CR> -> mapped in VS
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
 nnoremap gh :vsc Edit.GoToDefinition<CR>
 nnoremap gj :vsc Edit.GoToImplementation<CR>
 nnoremap gk :vsc Edit.FindAllReferences<CR>
 " search -> find next/previous -> alt-n, ctrl-alt-n in VS
+" search ->  C-f in VS
+
+" jump between compilation errors
+nnoremap <leader>e :vsc View.NextError<cr>
+nnoremap <leader>E :vsc View.PreviousError<cr>
+
+" Navigate by method, m for going back since it's used a lot for [find reference]
+nnoremap gM :vsc Edit.NextMethod<cr>
+nnoremap gm :vsc Edit.PreviousMethod<cr>
+
+" Refactor
+nnoremap r :vsc Refactor.Rename<cr>
+nnoremap <leader>R :vsc Refactor.ReorderParameters<cr>
 
 " Hover notes
 nnoremap n :vsc Edit.QuickInfo<CR>
 
 " Go to test
 nnoremap ;t :vsc TestExplorer.SyncTestInContext<CR>
-" run test use vanilla shortcuts:  run: ctrl-t, r 	debug: ctrl-t, ctrl-r
+" run test use vanilla shortcuts:  run: ctrl-r, t 	debug: ctrl-r, ctrl-t
 
 "Fuzzy finding in box, type f for files, t for types
-"nnoremap ;s :vsc Edit.GoToAll<CR> 
-"nnoremap ;s :vsc ReSharper.ReSharper_GotoText<CR> 
 nnoremap ;s :vsc ReSharper.ReSharper_GotoFile<CR> 
 
 " Tab switching
@@ -43,21 +59,36 @@ nnoremap  <C-A-h> gT
 nnoremap  ;q :vsc Window.CloseDocumentWindow<CR> 
 
 " Debugging f1->into, f2-over, f3-continue, f4-stop, f5-step out
+nnoremap <leader>b :vsc Debug.ToggleBreakpoint<cr>
 
 " INSERT
 inoremap df <esc>
-" inoremap <C-j> :vsc Edit.LineDown<CR> SET IN VS SHORTCUTS
-" inoremap <C-k> :vsc Edit.LineUp<CR> SET IN VS SHORTCUTS
 " UP AND DOWN REMAPPED TO Alt-J AND Alt-K WITH POWER TOYS
 
 " VISUAL
 vnoremap df <esc>
 " when pasting in visual mode, don't overwrite the register
 vnoremap p "_dP
+
+" Commenting
+vnoremap <leader>c :vsc Edit.CommentSelection<CR>
+vnoremap <leader>u :vsc Edit.UncommentSelection<CR>
+
+" Indenting
+vnoremap > >gv
+vnoremap < <gv
+
 "Select text from current caret position to desired jump label (fwd and reverse directions supported)
-vnoremap f gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
+vnoremap f :vsc Tools.InvokePeasyMotionTextSelect<CR>
 
+" Refactor
+ vnoremap r :vsc Refactor.ExtractMethod<cr>
 
+" NOTES
+" Edit.LineDown<CR> Edit.LineUp<CR> can be SET IN VS SHORTCUTS
 
+"nnoremap ;s :vsc Edit.GoToAll<CR> 
+"nnoremap ;s :vsc ReSharper.ReSharper_GotoText<CR> 
 
-
+"Two char search mode:
+" nmap ;c gS:vsc Tools.InvokePeasyMotionTwoCharJump<CR>
