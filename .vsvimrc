@@ -27,8 +27,10 @@ nnoremap <C-d> <C-d>zz
 nnoremap gh :vsc Edit.GoToDefinition<CR>
 nnoremap gj :vsc Edit.GoToImplementation<CR>
 nnoremap gk :vsc Edit.FindAllReferences<CR>
+nnoremap gl :vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+" search
+nnoremap <leader>f :vsc Edit.Replace<CR>
 " search -> find next/previous -> alt-n, ctrl-alt-n in VS
-" search ->  C-f in VS
 
 " jump between compilation errors
 nnoremap <leader>e :vsc View.NextError<cr>
@@ -48,6 +50,8 @@ nnoremap n :vsc Edit.QuickInfo<CR>
 " Go to test
 nnoremap ;t :vsc TestExplorer.SyncTestInContext<CR>
 " run test use vanilla shortcuts:  run: ctrl-r, t 	debug: ctrl-r, ctrl-t
+" Open Test explorer
+nnoremap <leader>t :vsc TestExplorer.ShowTestExplorer<CR>
 
 "Fuzzy finding in box, type f for files, t for types
 nnoremap ;s :vsc ReSharper.ReSharper_GotoFile<CR> 
@@ -61,14 +65,29 @@ nnoremap  ;q :vsc Window.CloseDocumentWindow<CR>
 " Debugging f1->into, f2-over, f3-continue, f4-stop, f5-step out
 nnoremap <leader>b :vsc Debug.ToggleBreakpoint<cr>
 
+" Commenting
+nnoremap <leader>c :vsc Edit.CommentSelection<CR>
+nnoremap <leader>u :vsc Edit.UncommentSelection<CR>
+
+" Empty line
+nnoremap <leader>o o<esc>k
+nnoremap <leader>O O<esc>j
+
 " INSERT
 inoremap df <esc>
 " UP AND DOWN REMAPPED TO Alt-J AND Alt-K WITH POWER TOYS
+" Tab switching
+inoremap  <C-A-l> <esc>gt
+inoremap  <C-A-h> <esc>gT
 
 " VISUAL
 vnoremap df <esc>
 " when pasting in visual mode, don't overwrite the register
 vnoremap p "_dP
+
+" Tab switching
+vnoremap  <C-A-l> <esc>gt
+vnoremap  <C-A-h> <esc>gT
 
 " Commenting
 vnoremap <leader>c :vsc Edit.CommentSelection<CR>
@@ -83,6 +102,9 @@ vnoremap f :vsc Tools.InvokePeasyMotionTextSelect<CR>
 
 " Refactor
  vnoremap r :vsc Refactor.ExtractMethod<cr>
+ 
+ " Go to line
+ vnoremap gl :vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
 
 " NOTES
 " Edit.LineDown<CR> Edit.LineUp<CR> can be SET IN VS SHORTCUTS
