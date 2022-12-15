@@ -15,9 +15,8 @@ nnoremap ;c gS:vsc Tools.InvokePeasyMotionTwoCharJump<CR>
 "Whole viewport jump-to-word beginning mode:
 nnoremap f gS:vsc Tools.InvokePeasyMotion<CR>
 
-"Jump to word beginning in current line
+"Jump to word beginning/ending in current line
 nnoremap ;w gS:vsc Tools.InvokePeasyMotionLineJumpToWordBegining<CR>
-"Jump to word ending in current line
 nnoremap ;e gS:vsc Tools.InvokePeasyMotionLineJumpToWordEnding<CR>
 
 "nnoremap <C-h> :vsc View.NavigateBackward<CR> -> mapped in VS
@@ -25,9 +24,13 @@ nnoremap ;e gS:vsc Tools.InvokePeasyMotionLineJumpToWordEnding<CR>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap gh :vsc Edit.GoToDefinition<CR>
+nnoremap ggh :vsc EditorContextMenus.CodeWindow.ViewCallHierarchy<CR>
 nnoremap gj :vsc Edit.GoToImplementation<CR>
 nnoremap gk :vsc Edit.FindAllReferences<CR>
-nnoremap gl :vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+nnoremap gl :vsc ReSharper.ReSharper_GotoTypeDeclaration<CR>
+nnoremap <leader>j :vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+nnoremap <leader>k :vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+
 " search
 nnoremap <leader>f :vsc Edit.Replace<CR>
 " search -> find next/previous -> alt-n, ctrl-alt-n in VS
@@ -59,6 +62,8 @@ nnoremap ;s :vsc ReSharper.ReSharper_GotoFile<CR>
 " Tab switching
 nnoremap  <C-A-l> gt
 nnoremap  <C-A-h> gT
+" Go to tab
+nnoremap  ;z :vsc Tools.InvokePeasyMotionJumpToDocumentTab<CR>
 " Close window -> C-q could be used to close search-all menus
 nnoremap  ;q :vsc Window.CloseDocumentWindow<CR> 
 
@@ -99,12 +104,17 @@ vnoremap < <gv
 
 "Select text from current caret position to desired jump label (fwd and reverse directions supported)
 vnoremap f :vsc Tools.InvokePeasyMotionTextSelect<CR>
+"Jump to word beginning/ending in current line
+vnoremap ;w gS:vsc Tools.InvokePeasyMotionLineJumpToWordBegining<CR>
+vnoremap ;e gS:vsc Tools.InvokePeasyMotionLineJumpToWordEnding<CR>
 
 " Refactor
- vnoremap r :vsc Refactor.ExtractMethod<cr>
+ vnoremap <leader>r :vsc Refactor.ExtractMethod<cr>
  
  " Go to line
- vnoremap gl :vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+xnoremap <leader>j :vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+xnoremap <leader>k :vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+
 
 " NOTES
 " Edit.LineDown<CR> Edit.LineUp<CR> can be SET IN VS SHORTCUTS
