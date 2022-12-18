@@ -1,23 +1,88 @@
 // Place your key bindings in this file to override the defaults
 [
   {
-    "key": "ctrl+j",
+    "key": "alt+j",
     "command": "selectNextSuggestion",
     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
   },
   {
-    "key": "ctrl+k",
+    "key": "alt+k",
     "command": "selectPrevSuggestion",
     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
   },
   {
-    "key": "ctrl+j",
+    "key": "alt+j",
     "command": "workbench.action.quickOpenNavigateNext",
     "when": "inQuickOpen"
   },
   {
-    "key": "ctrl+k",
+    "key": "alt+k",
     "command": "workbench.action.quickOpenNavigatePrevious",
     "when": "inQuickOpen"
+  },
+  
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateBack",
+    "when": "canNavigateBack"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateForward",
+    "when": "canNavigateForward"
+  },
+  {
+    "key": "ctrl+alt+h",
+    "command": "workbench.action.previousEditor",
+  },
+  {
+    "key": "ctrl+alt+l",
+    "command": "workbench.action.nextEditor",
+  },
+  {
+    "key": "ctrl+f",
+    "command": "editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "alt-n",
+    "command": "editor.action.nextMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+N",
+    "command": "editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
+  // Debug
+  {
+    "key": "f1",
+    "command": "workbench.action.debug.stepInto",
+    "when": "debugState != 'inactive'"
+  },
+  {
+    "key": "f2",
+    "command": "workbench.action.debug.stepOver",
+    "when": "debugState == 'stopped'"
+  },
+  {
+    "key": "f3",
+    "command": "workbench.action.debug.continue",
+    "when": "debugState == 'stopped'"
+  },
+  {
+    "key": "f4",
+    "command": "workbench.action.debug.stop",
+    "when": "inDebugMode && !focusedSessionIsAttach"
+  },
+  {
+    "key": "f5",
+    "command": "workbench.action.debug.stepOut",
+    "when": "debugState == 'stopped'"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
   }
 ]

@@ -10,22 +10,112 @@
     "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindings": 
     [
+        // EASYMOTION REMAPS
+        {
+            "before": ["<leader>","j"],
+            "after": ["<leader>","<leader>","j"]
+        },
+        {
+            "before": ["<leader>","k"],
+            "after": ["<leader>","<leader>","k"]
+        },
         {
             "before": ["f"],
-            "after": ["<leader>","<leader>","f"]
+            "after": ["<leader>","<leader>","w"]
         },
         {
             "before": ["F"],
-            "after": ["<leader>","<leader>","F"]
+            "after": ["<leader>","<leader>","b"]
         },
         {
-            "before": ["<tab>"],
-            "commands": ["workbench.action.nextEditor"]
+            "before": ["<leader>", "f"],
+            "after": ["<leader>","<leader>","s"]
+        },
+        // {
+        //     "before": ["<leader>", "F"],
+        //     "after": ["<leader>","<leader>","F"]
+        // },
+        // go to def
+        {
+            "before": ["g","h"],
+            "commands": ["editor.action.revealDefinition"],
+            "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        },
+        // go to type def
+        {
+            "before": ["g","l"],
+            "commands": ["editor.action.goToTypeDefinition"],
+            "when": "editorHasTypeDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        },
+        // go to implementation
+        {
+            "before": ["g","j"],
+            "commands": ["editor.action.goToImplementation"],
+            "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+        },
+        // find refs
+        {
+            "before": ["g","k"],
+            "commands": ["references-view.findReferences"],
+            "when": "editorHasReferenceProvider"
+        },
+        // call Hierarchy
+        {
+            "before": ["g", "g","h"],
+            "commands": ["references-view.showCallHierarchy"],
+            "when": "editorHasCallHierarchyProvider"
+        },
+        // refactor
+        {
+            "before": ["r"],
+            "commands": [ "editor.action.rename" ],
+            "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+        },
+        // comment
+        {
+            "before": ["<leader>","c"],
+            "commands": [ "editor.action.commentLine" ],
+            "when": "editorTextFocus && !editorReadonly"
         },
         {
-            "before": ["<S-tab>"],
-            "commands": ["workbench.action.previousEditor"]
+            "before": ["<leader>","u"],
+            "commands": [ "editor.action.commentLine" ],
+            "when": "editorTextFocus && !editorReadonly"
         },
+        // to next/previous error
+        {
+            "before": ["<leader>","e"],
+            "commands": ["editor.action.marker.nextInFiles"],
+            "when": "editorFocus"
+        },
+        {
+            "before": ["<leader>","E"],
+            "commands": ["editor.action.marker.prevInFiles"],
+            "when": "editorFocus"
+        },
+        // go to (nothing for file / > for command / @ for symbol / # for type)
+        {
+            "before": [";","s"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        // hover notes
+        {
+            "before": ["n"],
+            "commands": ["editor.action.showHover"],
+            "when": "editorTextFocus"
+        },
+        {
+            "before": ["n"],
+            "commands": ["editor.debug.action.showDebugHover"],
+            "when": "editorTextFocus && inDebugMode"
+        },
+        // Toggle Breakpoint
+        {
+            "before": ["<leader>","b"],
+            "commands": ["editor.debug.action.toggleBreakpoint"],
+            "when": "debuggersAvailable && editorTextFocus"
+        },
+
     ],
     "vim.visualModeKeyBindings": 
     [
@@ -38,12 +128,55 @@
             "after": ["<", "g", "v"]
         },
         {
+            "before": ["<leader>","r"],
+            "commands": [ "editor.action.refactor" ],
+            "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+        },
+        {
+            "before": ["<leader>","j"],
+            "after": ["<leader>","<leader>","j"]
+        },
+        {
+            "before": ["<leader>","k"],
+            "after": ["<leader>","<leader>","k"]
+        },
+        {
             "before": ["f"],
-            "after": ["<leader>","<leader>","f"]
+            "after": ["<leader>","<leader>","w"]
         },
         {
             "before": ["F"],
-            "after": ["<leader>","<leader>","F"]
+            "after": ["<leader>","<leader>","b"]
         },
-    ],   
+        {
+            "before": ["<leader>", "f"],
+            "after": ["<leader>","<leader>","s"]
+        },
+        // {
+        //     "before": ["<leader>", "F"],
+        //     "after": ["<leader>","<leader>","F"]
+        // },
+        // comment
+        {
+            "before": ["<leader>","c"],
+            "commands": [ "editor.action.commentLine" ],
+            "when": "editorTextFocus && !editorReadonly"
+        },
+        {
+            "before": ["<leader>","u"],
+            "commands": [ "editor.action.commentLine" ],
+            "when": "editorTextFocus && !editorReadonly"
+        },
+    ],
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]",
+        "todo"
+    ],
+    
 }
