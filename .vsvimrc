@@ -43,6 +43,10 @@ nnoremap <leader>E :vsc View.PreviousError<cr>
 nnoremap gM :vsc Edit.NextMethod<cr>
 nnoremap gm :vsc Edit.PreviousMethod<cr>
 
+" jump to next/previous reference
+nnoremap ;r :vsc Edit.GoToNextLocation<cr>
+nnoremap ;q :vsc Edit.GoToPrevLocation<cr>
+
 " Refactor
 nnoremap r :vsc Refactor.Rename<cr>
 nnoremap <leader>R :vsc Refactor.ReorderParameters<cr>
@@ -114,6 +118,41 @@ vnoremap ;e gS:vsc Tools.InvokePeasyMotionLineJumpToWordEnding<CR>
  " Go to line
 xnoremap <leader>j :vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
 xnoremap <leader>k :vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+
+" Surround simulating bindings found on https://github.com/VsVim/VsVim/issues/1474
+nnoremap s( ciw(<C-r>")<Esc>
+nnoremap s[ ciw[<C-r>"]<Esc>
+nnoremap s{ ciw{<C-r>"}<Esc>
+nnoremap s< ciw<lt><C-r>"><Esc>
+nnoremap s" ciw"<C-r>""<Esc>
+nnoremap s' ciw'<C-r>"'<Esc>
+nnoremap sw( ciW(<C-r>")<Esc>
+nnoremap sw[ ciW[<C-r>"]<Esc>
+nnoremap sw{ ciW{<C-r>"}<Esc>
+nnoremap sw< ciW<lt><C-r>"><Esc>
+nnoremap sw" ciW"<C-r>""<Esc>
+nnoremap sw' ciW'<C-r>"'<Esc>
+
+" Surround delete bindings
+nnoremap ds( vi(dvhp
+nnoremap ds[ vi[dvhp
+nnoremap ds{ vi{dvhp
+nnoremap ds< vi<dvhp
+nnoremap ds" vi"dvhp
+nnoremap ds' vi'dvhp
+
+" Surround change bindings
+nnoremap cs"' vi"oh<Esc>msvi"l<Esc>cl'<Esc>`scl'<Esc>
+nnoremap cs'" vi'oh<Esc>msvi'l<Esc>cl"<Esc>`scl"<Esc>
+
+" Surround visual selected text
+vnoremap s" c"<C-r>""<Esc>
+vnoremap s' c"<C-r>"'<Esc>
+vnoremap s( c(<C-r>")<Esc>
+vnoremap s[ c[<C-r>"]<Esc>
+vnoremap s{ c{<C-r>"}<Esc>
+vnoremap s< c<lt><C-r>"><Esc>
+vnoremap s* c/*<C-r>"*/<Esc>
 
 
 " NOTES
