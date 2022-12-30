@@ -45,12 +45,12 @@
     "when": "editorFocus || editorIsOpen"
   },
   {
-    "key": "alt-n",
+    "key": "alt+n",
     "command": "editor.action.nextMatchFindAction",
     "when": "editorFocus"
   },
   {
-    "key": "alt+N",
+    "key": "alt+m",
     "command": "editor.action.previousMatchFindAction",
     "when": "editorFocus"
   },

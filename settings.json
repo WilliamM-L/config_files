@@ -59,6 +59,17 @@
             "commands": ["references-view.findReferences"],
             "when": "editorHasReferenceProvider"
         },
+        // go to next/prev reference --> CAN USE JK IN RERENCES MENU TO GO UP OR DOWN!!!
+        // {
+        //     "before": [";","r"],
+        //     "commands": ["references-view.next"],
+        //     "when": "reference-list.hasResult && references-view.canNavigate"
+        // },
+        // {
+        //     "before": [";","e"],
+        //     "commands": ["references-view.prev"],
+        //     "when": "reference-list.hasResult && references-view.canNavigate"
+        // },
         // call Hierarchy
         {
             "before": ["g", "g","h"],
@@ -105,7 +116,7 @@
             "when": "editorTextFocus"
         },
         {
-            "before": ["n"],
+            "before": ["N"],
             "commands": ["editor.debug.action.showDebugHover"],
             "when": "editorTextFocus && inDebugMode"
         },
@@ -115,6 +126,11 @@
             "commands": ["editor.debug.action.toggleBreakpoint"],
             "when": "debuggersAvailable && editorTextFocus"
         },
+        // close window
+        {
+            "before": [";","q"],
+            "commands": ["workbench.action.closeActiveEditor"],
+        }
 
     ],
     "vim.visualModeKeyBindings": 
@@ -178,5 +194,6 @@
         "[x]",
         "todo"
     ],
+    "git.confirmSync": false,
     
 }
