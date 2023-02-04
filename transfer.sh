@@ -1,0 +1,1 @@
+cp ~/.vimrc ~/code/config_files/.vimrc

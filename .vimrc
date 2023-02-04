@@ -18,10 +18,18 @@ nnoremap <leader>O O<esc>j
 "Go to Beginning/End of line
 nnoremap H ^
 nnoremap L $
+nnoremap dH d^
+nnoremap dL d$
+nnoremap cH c^
+nnoremap cL c$
 
 " Indenting
 vnoremap > >gv
 vnoremap < <gv
+"Go to Beginning/End of line
+vnoremap H ^
+vnoremap L $
 
 " when pasting in visual mode, don't overwrite the register
 vnoremap p "_dP
+
