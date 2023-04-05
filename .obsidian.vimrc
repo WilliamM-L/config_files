@@ -1,10 +1,33 @@
 " esc in insert & visual mode
 imap df <Esc>
 vmap df <Esc>
-exmap back obcommand app:go-back
-nmap <C-h> :back
-exmap forward obcommand app:go-forward
-nmap <C-l> :forward
+
+" To go forward/backward with <C-l>/<C-h>, use normal keybinds settings.
+
+
+" NOTE: must use 'map' and not 'nmap'
+exmap surround_wiki surround [[ ]]
+exmap surround_double_quotes surround " "
+exmap surround_single_quotes surround ' '
+exmap surround_brackets surround ( )
+exmap surround_square_brackets surround [ ]
+exmap surround_curly_brackets surround { }
+
+map [[ :surround_wiki
+nunmap s
+vunmap s
+map s" :surround_double_quotes
+map s' :surround_single_quotes
+map sb :surround_brackets
+map s( :surround_brackets
+map s) :surround_brackets
+map s[ :surround_square_brackets
+map s[ :surround_square_brackets
+map s{ :surround_curly_brackets
+map s} :surround_curly_brackets
+
+" Jump to link shortcut
+
 
 " Going up or down, screen centered
 nmap <C-u> <C-u>zz
