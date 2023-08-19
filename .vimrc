@@ -7,6 +7,9 @@ let mapleader=" "
 inoremap df <esc>
 vnoremap df <esc>
 
+" reselect after pasting
+nnoremap gV `[v`]
+
 " Going up or down, screen centered
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
