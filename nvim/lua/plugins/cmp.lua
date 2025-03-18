@@ -33,14 +33,15 @@ return {
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<Tab>"] = LazyVim.cmp.confirm({ select = auto_select }),
-        ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
+        -- ["<Tab>"] = LazyVim.cmp.confirm({ select = auto_select }),
+        ["<tab>"] = LazyVim.cmp.confirm({ select = true }),
         ["<S-CR>"] = LazyVim.cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ["<C-CR>"] = function(fallback)
           cmp.abort()
           fallback()
         end,
-        ["<tab>"] = function(fallback)
+        -- snippet forward places you to the next item
+        ["<S-tab>"] = function(fallback)
           return LazyVim.cmp.map({ "snippet_forward", "ai_accept" }, fallback)()
         end,
       }),
