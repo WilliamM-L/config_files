@@ -28,6 +28,7 @@ return {
       "rust",
       "bash",
       "c",
+      "c_sharp",
       "diff",
       "html",
       "javascript",
