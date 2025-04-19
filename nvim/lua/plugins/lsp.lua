@@ -18,6 +18,13 @@ return {
             end,
             desc = "Goto Definition",
           },
+          {
+            "gj",
+            LazyVim.has("telescope.nvim") and function()
+              require("omnisharp_extended").telescope_lsp_implementation()
+            end,
+            desc = "Goto Implementation",
+          },
         },
         enable_roslyn_analyzers = true,
         organize_imports_on_format = true,

@@ -139,7 +139,7 @@ return {
           TSKeyword = { fg = colors.blue },
           TSKeywordFunction = { fg = colors.red },
           TSKeywordOperator = { fg = colors.peach },
-          TSKeywordReturn = { fg = colors.red },
+          TSKeywordReturn = { fg = colors.mauve },
           TSLabel = { fg = colors.peach },
           TSLiteral = { link = "String" },
           TSMath = { fg = colors.blue },
@@ -289,13 +289,16 @@ return {
           ["@lsp.type.variable"] = { link = "TSVariable" },
           -- custom overrides for c#
           ["@lsp"] = { link = "TSKeyword" },
-          ["@lsp.typemod.method.static.cs"] = { link = "TSConstant" },
+          ["@lsp.typemod.class.static.cs"] = { link = "TSConstant" },
+          ["@lsp.typemod.property.static.cs"] = { link = "TSConstant" },
+          ["@lsp.typemod.method.static.cs"] = { fg = "#e37a36" },
           ["@lsp.typemod.constantName.static.cs"] = { link = "TSConstant" },
           ["@lsp.type.xmlDocCommentName.cs"] = { fg = colors.text },
           ["@lsp.type.xmlDocCommentDelimiter.cs"] = { link = "TSComment" },
           ["@lsp.type.xmlDocCommentText.cs"] = { link = "TSComment" },
           ["@lsp.type.controlKeyword.cs"] = { link = "TSKeywordReturn" },
           ["@lsp.type.fieldName.cs"] = { fg = colors.flamingo },
+          ["@lsp.type.extensionMethodName.cs"] = { fg = "#CEAB43" },
           -- custom overrides for typescript
           ["@lsp.typemod.interface.declaration.typescriptreact"] = { link = "@lsp.type.interface"},
           ["@lsp.typemod.function.declaration.typescript"] = { link = "TSMethod"},
@@ -305,6 +308,11 @@ return {
           ["@lsp.typemod.variable.declaration.typescriptreact"] = { link = "TSVariable"},
           ["@lsp.typemod.variable.readonly.typescriptreact"] = { link = "TSVariable"},
           ["@lsp.typemod.variable.local.typescriptreact"] = { link = "TSVariable"},
+          --- custom overrides for rust
+          ["@lsp.typemod.function.public.rust"] = { link = "TSMethod"},
+          ["@lsp.typemod.function.declaration.rust"] = { link = "TSMethod"},
+          ["@lsp.typemod.function.async.rust"] = { link = "TSMethod"},
+          ["@lsp.typemod.keyword.controlFlow.rust"] = { link = "TSKeywordReturn"},
         }
       end,
     },

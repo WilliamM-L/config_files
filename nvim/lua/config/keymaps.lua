@@ -14,8 +14,10 @@ vim.keymap.set({ "n" }, "<C-l>", "<C-i>", { silent = true })
 vim.keymap.set({ "n" }, "gV", "`[v`]", { silent = true })
 
 -- Switch windows
-vim.keymap.set({"n"}, "<C-A-h>", "<C-w>h", { desc = "Go to left window" })
-vim.keymap.set({"n"}, "<C-A-l>", "<C-w>l", { desc = "Go to right window" })
+vim.keymap.set({"n"}, "<A-h>", "<C-w>h", { desc = "Go to left window" })
+vim.keymap.set({"n"}, "<A-l>", "<C-w>l", { desc = "Go to right window" })
+vim.keymap.set({"n"}, "<A-j>", "<C-w>j", { desc = "Go to down window" })
+vim.keymap.set({"n"}, "<A-k>", "<C-w>k", { desc = "Go to up window" })
 
 --
 -- vim.keymap.set({ "n", "i", "v" }, "<C-j>", "<C-n>", { silent = true })
